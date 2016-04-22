@@ -85,6 +85,11 @@
  * Implementation of functions defined in portable.h for the MSP430 port.
  *----------------------------------------------------------*/
 
+//Define TIMERA0_VECTOR = TIMER0_A0_VECTOR
+#ifndef TIMERA0_VECTOR
+#define TIMERA0_VECTOR TIMER0_A0_VECTOR
+#endif 
+
 /* Constants required for hardware setup.  The tick ISR runs off the ACLK, 
 not the MCLK. */
 #define portACLK_FREQUENCY_HZ			( ( TickType_t ) 32768 )
@@ -301,25 +306,25 @@ void vPortYield( void )
 static void prvSetupTimerInterrupt( void )
 {
 	/* Ensure the timer is stopped. */
-	TACTL = 0;
+	TA0CTL = 0;
 
 	/* Run the timer of the ACLK. */
-	TACTL = TASSEL_1;
+	TA0CTL = TASSEL_1;
 
 	/* Clear everything to start with. */
-	TACTL |= TACLR;
+	TA0CTL |= TACLR;
 
 	/* Set the compare match value according to the tick rate we want. */
-	TACCR0 = portACLK_FREQUENCY_HZ / configTICK_RATE_HZ;
+	TA0CCR0 = portACLK_FREQUENCY_HZ / configTICK_RATE_HZ;
 
 	/* Enable the interrupts. */
-	TACCTL0 = CCIE;
+	TA0CCTL0 = CCIE;
 
 	/* Start up clean. */
-	TACTL |= TACLR;
+	TA0CTL |= TACLR;
 
 	/* Up mode. */
-	TACTL |= MC_1;
+	TA0CTL |= MC_1;
 }
 /*-----------------------------------------------------------*/
 
@@ -329,28 +334,28 @@ static void prvSetupTimerInterrupt( void )
  */
 
 #if configUSE_PREEMPTION == 1
-
+//TODO: Resolve compilation errors here
 	/*
 	 * Tick ISR for preemptive scheduler.  We can use a naked attribute as
 	 * the context is saved at the start of vPortYieldFromTick().  The tick
 	 * count is incremented after the context is saved.
 	 */
-	interrupt (TIMERA0_VECTOR) prvTickISR( void ) __attribute__ ( ( naked ) );
-	interrupt (TIMERA0_VECTOR) prvTickISR( void )
-	{
-		/* Save the context of the interrupted task. */
-		portSAVE_CONTEXT();
+	// interrupt (TIMERA0_VECTOR) prvTickISR( void ) __attribute__ ( ( naked ) );
+	// interrupt (TIMERA0_VECTOR) prvTickISR( void )
+	// {
+	// 	/* Save the context of the interrupted task. */
+	// 	portSAVE_CONTEXT();
 
-		/* Increment the tick count then switch to the highest priority task
-		that is ready to run. */
-		if( xTaskIncrementTick() != pdFALSE )
-		{
-			vTaskSwitchContext();
-		}
+	// /*	 Increment the tick count then switch to the highest priority task
+	// 	that is ready to run. 
+	// 	if( xTaskIncrementTick() != pdFALSE )
+	// 	{
+	// 		vTaskSwitchContext();
+	// 	}
 
-		/* Restore the context of the new task. */
-		portRESTORE_CONTEXT();
-	}
+	// 	/* Restore the context of the new task. */
+	// 	portRESTORE_CONTEXT();
+	// }
 
 #else
 
