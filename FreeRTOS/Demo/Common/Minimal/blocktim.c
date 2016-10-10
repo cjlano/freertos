@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -98,6 +98,12 @@
 #define bktTIME_TO_BLOCK			( 175 )
 #define bktDONT_BLOCK				( ( TickType_t ) 0 )
 #define bktRUN_INDICATOR			( ( UBaseType_t ) 0x55 )
+
+/* In case the demo does not have software timers enabled, as this file uses
+the configTIMER_TASK_PRIORITY setting. */
+#ifndef configTIMER_TASK_PRIORITY
+	#define configTIMER_TASK_PRIORITY ( configMAX_PRIORITIES - 1 )
+#endif
 
 /*-----------------------------------------------------------*/
 

@@ -77,7 +77,7 @@
 </DIV>
 </A>
 </DIV>
-<DIV class="content_container">This design is targeted for 7z020 board (part number: 7z020clg484-1)
+<DIV class="content_container">This design is targeted for xc7z020 board (part number: xc7z020clg484-1)
 
 <br>
 <H1>Zynq Design Summary</H1>
@@ -87,7 +87,7 @@
 <B>Device</B>
 </TD>
 <TD width=80% BGCOLOR=#E6E6E6>
-7z020
+xc7z020
 </TD>
 </TR>
 <TR valign="top">
@@ -103,7 +103,7 @@
 <B>Part</B>
 </TD>
 <TD width=80% BGCOLOR=#E6E6E6>
-7z020clg484-1
+xc7z020clg484-1
 </TD>
 </TR>
 <TR valign="top">
@@ -1911,7 +1911,7 @@ IO PLL
 IO PLL
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-50.000000
+10.000000
 </TD>
 </TR>
 <TR valign="top">
@@ -1922,7 +1922,7 @@ IO PLL
 IO PLL
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-50.000000
+10.000000
 </TD>
 </TR>
 <TR valign="top">
@@ -1933,7 +1933,7 @@ IO PLL
 IO PLL
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-50.000000
+10.000000
 </TD>
 </TR>
 </TABLE>
@@ -6093,10 +6093,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>23</B>
+<B>f</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>2300</B>
+<B>f00</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency.</B>
@@ -6113,10 +6113,10 @@ SLCR_LOCK
 <B>3f00000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>3</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>300000</B>
+<B>700000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. Second cascade divider</B>
@@ -6136,7 +6136,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>302301</B>
+<B>700f01</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>DCI clock control</B>
@@ -7055,10 +7055,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>e</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>e00</B>
+<B>700</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider</B>
@@ -7075,10 +7075,10 @@ SLCR_LOCK
 <B>3f00000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>3</B>
+<B>6</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>300000</B>
+<B>600000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. Second cascade divider.</B>
@@ -7098,7 +7098,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>300e01</B>
+<B>600701</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>CAN Ref Clock Control</B>
@@ -7273,6 +7273,7 @@ SLCR_LOCK
 </TR>
 </TABLE>
 <P>
+<H1>TRACE CLOCK</H1>
 <H2><a name="PCAP_CLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)PCAP_CLK_CTRL</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
 <TR valign="top">
@@ -7516,10 +7517,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>5</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>500</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider.</B>
@@ -7536,10 +7537,10 @@ SLCR_LOCK
 <B>3f00000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>4</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>100000</B>
+<B>400000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. Second cascade divide</B>
@@ -7559,7 +7560,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>400500</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>PL Clock 0 Output control</B>
@@ -7663,10 +7664,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>100</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider.</B>
@@ -7706,7 +7707,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>100100</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>PL Clock 1 Output control</B>
@@ -7810,10 +7811,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>100</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider.</B>
@@ -7853,7 +7854,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>100100</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>PL Clock 2 output control</B>
@@ -7957,10 +7958,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>100</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider.</B>
@@ -8000,7 +8001,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>100100</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>PL Clock 3 output control</B>
@@ -12950,10 +12951,10 @@ ddrc_ctrl
 <B>3ff0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>105</B>
+<B>16d</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1050</B>
+<B>16d0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Clock cycles to wait after a DDR software reset before driving CKE high to start the DRAM initialization sequence. Units: 1024 clock cycles. DDR2 Specifications typically require this to be programmed for a delay of >= 200 uS. LPDDR2 - tINIT0 of 20 mS (max) + tINIT1 of 100 nS (min)</B>
@@ -13013,7 +13014,7 @@ ddrc_ctrl
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>11054</B>
+<B>116d4</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>DRAM Burst 8 read/write</B>
@@ -13935,6 +13936,46 @@ ddrc_ctrl
 </TD>
 </TR>
 <TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>reserved_reg_ddrc_rank0_wr_odt</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>5:3</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>38</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>1</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>8</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Reserved. Do not modify.</B>
+</TD>
+</TR>
+<TR valign="top">
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>reserved_reg_ddrc_rank0_rd_odt</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>2:0</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>7</B>
+</TD>
+<TD width=10% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=15% BGCOLOR=#FBF5EF>
+<B>0</B>
+</TD>
+<TD width=35% BGCOLOR=#FBF5EF>
+<B>Reserved. Do not modify.</B>
+</TD>
+</TR>
+<TR valign="top">
 <TD width=15% BGCOLOR=#C0C0C0>
 <B>DRAM_ODT_reg@0XF8006048</B>
 </TD>
@@ -13942,13 +13983,13 @@ ddrc_ctrl
 <B>31:0</B>
 </TD>
 <TD width=10% BGCOLOR=#C0C0C0>
-<B>3f000</B>
+<B>3f03f</B>
 </TD>
 <TD width=10% BGCOLOR=#C0C0C0>
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>3c000</B>
+<B>3c008</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>DRAM ODT control</B>
@@ -28952,10 +28993,10 @@ SLCR_LOCK
 <B>c00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>3</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>c00</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Reserved. Do not modify.</B>
@@ -29035,7 +29076,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>e09</B>
+<B>209</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>DDR IOB Buffer Control</B>
@@ -45588,7 +45629,6 @@ MASK_DATA_0_LSW
 </TABLE>
 <P>
 <H1>SRAM/NOR SET OPMODE</H1>
-<H1>TRACE CURRENT PORT SIZE</H1>
 <H1>UART REGISTERS</H1>
 <H2><a name="Baud_rate_divider_reg0">Register (<A href=#mod___slcr> slcr </A>)Baud_rate_divider_reg0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -46485,6 +46525,7 @@ MASK_DATA_0_LSW
 <H1>DIRECT COMMAND</H1>
 <H1>NOR CS1 BASE ADDRESS</H1>
 <H1>USB RESET</H1>
+<H1>USB0 RESET</H1>
 <H1>DIR MODE BANK 0</H1>
 <H2><a name="DIRM_0">Register (<A href=#mod___slcr> slcr </A>)DIRM_0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -47094,10 +47135,29 @@ MASK_DATA_0_LSW
 </TR>
 </TABLE>
 <P>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>USB1 RESET</H1>
+<H1>DIR MODE BANK 0</H1>
+<H1>DIR MODE BANK 1</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>OUTPUT ENABLE BANK 0</H1>
+<H1>OUTPUT ENABLE BANK 1</H1>
+<H1>MASK_DATA_0_LSW LOW BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW LOW BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW LOW BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW LOW BANK [53:48]</H1>
+<H1>ADD 1 MS DELAY</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
 <H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
 <H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
 <H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
 <H1>ENET RESET</H1>
+<H1>ENET0 RESET</H1>
 <H1>DIR MODE BANK 0</H1>
 <H2><a name="DIRM_0">Register (<A href=#mod___slcr> slcr </A>)DIRM_0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -47710,7 +47770,26 @@ MASK_DATA_0_LSW
 <H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
 <H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
 <H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>ENET1 RESET</H1>
+<H1>DIR MODE BANK 0</H1>
+<H1>DIR MODE BANK 1</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>OUTPUT ENABLE BANK 0</H1>
+<H1>OUTPUT ENABLE BANK 1</H1>
+<H1>MASK_DATA_0_LSW LOW BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW LOW BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW LOW BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW LOW BANK [53:48]</H1>
+<H1>ADD 1 MS DELAY</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
 <H1>I2C RESET</H1>
+<H1>I2C0 RESET</H1>
 <H1>DIR MODE GPIO BANK0</H1>
 <H2><a name="DIRM_0">Register (<A href=#mod___slcr> slcr </A>)DIRM_0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -48323,6 +48402,28 @@ MASK_DATA_0_LSW
 <H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
 <H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
 <H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>I2C1 RESET</H1>
+<H1>DIR MODE GPIO BANK0</H1>
+<H1>DIR MODE GPIO BANK1</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>OUTPUT ENABLE</H1>
+<H1>OUTPUT ENABLE</H1>
+<H1>MASK_DATA_0_LSW LOW BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW LOW BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW LOW BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW LOW BANK [53:48]</H1>
+<H1>ADD 1 MS DELAY</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>NOR CHIP SELECT</H1>
+<H1>DIR MODE BANK 0</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>OUTPUT ENABLE BANK 0</H1>
 </TABLE>
 <P>
 <H2><a name="ps7_post_config_3_0">ps7_post_config_3_0</a></H2>
@@ -49248,6 +49349,7 @@ SLCR_LOCK
 <H1>AFI1 REGISTERS</H1>
 <H1>AFI2 REGISTERS</H1>
 <H1>AFI3 REGISTERS</H1>
+<H1>AFI2 SECURE REGISTER</H1>
 <H1>LOCK IT BACK</H1>
 <H2><a name="SLCR_LOCK">Register (<A href=#mod___slcr> slcr </A>)SLCR_LOCK</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -53957,10 +54059,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>23</B>
+<B>f</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>2300</B>
+<B>f00</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency.</B>
@@ -53977,10 +54079,10 @@ SLCR_LOCK
 <B>3f00000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>3</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>300000</B>
+<B>700000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. Second cascade divider</B>
@@ -54000,7 +54102,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>302301</B>
+<B>700f01</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>DCI clock control</B>
@@ -54919,10 +55021,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>e</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>e00</B>
+<B>700</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider</B>
@@ -54939,10 +55041,10 @@ SLCR_LOCK
 <B>3f00000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>3</B>
+<B>6</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>300000</B>
+<B>600000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. Second cascade divider.</B>
@@ -54962,7 +55064,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>300e01</B>
+<B>600701</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>CAN Ref Clock Control</B>
@@ -55137,6 +55239,7 @@ SLCR_LOCK
 </TR>
 </TABLE>
 <P>
+<H1>TRACE CLOCK</H1>
 <H2><a name="PCAP_CLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)PCAP_CLK_CTRL</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
 <TR valign="top">
@@ -55380,10 +55483,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>5</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>500</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider.</B>
@@ -55400,10 +55503,10 @@ SLCR_LOCK
 <B>3f00000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>4</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>100000</B>
+<B>400000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. Second cascade divide</B>
@@ -55423,7 +55526,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>400500</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>PL Clock 0 Output control</B>
@@ -55527,10 +55630,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>100</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider.</B>
@@ -55570,7 +55673,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>100100</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>PL Clock 1 Output control</B>
@@ -55674,10 +55777,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>100</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider.</B>
@@ -55717,7 +55820,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>100100</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>PL Clock 2 output control</B>
@@ -55821,10 +55924,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>100</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider.</B>
@@ -55864,7 +55967,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>100100</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>PL Clock 3 output control</B>
@@ -60996,10 +61099,10 @@ ddrc_ctrl
 <B>3ff0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>105</B>
+<B>16d</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1050</B>
+<B>16d0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Clock cycles to wait after a DDR software reset before driving CKE high to start the DRAM initialization sequence. Units: 1024 clock cycles. DDR2 Specifications typically require this to be programmed for a delay of >= 200 uS. LPDDR2 - tINIT0 of 20 mS (max) + tINIT1 of 100 nS (min)</B>
@@ -61059,7 +61162,7 @@ ddrc_ctrl
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>11054</B>
+<B>116d4</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>DRAM Burst 8 read/write</B>
@@ -78005,10 +78108,10 @@ SLCR_LOCK
 <B>c00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>3</B>
+<B>0</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>c00</B>
+<B>0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Enable test mode for VRP and VRN: 00: VRP/VRN test mode not used 11: VRP/VRN test mode enabled using vref based receiver. VRP/VRN control is set using the VRN_OUT, VRP_OUT, VRN_TRI, VRP_TRI fields in the DDRIOB_DCI_CTRL register</B>
@@ -78088,7 +78191,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>e09</B>
+<B>209</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>DDR IOB Buffer Control</B>
@@ -94661,7 +94764,6 @@ MASK_DATA_0_LSW
 </TABLE>
 <P>
 <H1>SRAM/NOR SET OPMODE</H1>
-<H1>TRACE CURRENT PORT SIZE</H1>
 <H1>UART REGISTERS</H1>
 <H2><a name="Baud_rate_divider_reg0">Register (<A href=#mod___slcr> slcr </A>)Baud_rate_divider_reg0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -95598,6 +95700,7 @@ MASK_DATA_0_LSW
 <H1>DIRECT COMMAND</H1>
 <H1>NOR CS1 BASE ADDRESS</H1>
 <H1>USB RESET</H1>
+<H1>USB0 RESET</H1>
 <H1>DIR MODE BANK 0</H1>
 <H2><a name="DIRM_0">Register (<A href=#mod___slcr> slcr </A>)DIRM_0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -96207,10 +96310,29 @@ MASK_DATA_0_LSW
 </TR>
 </TABLE>
 <P>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>USB1 RESET</H1>
+<H1>DIR MODE BANK 0</H1>
+<H1>DIR MODE BANK 1</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>OUTPUT ENABLE BANK 0</H1>
+<H1>OUTPUT ENABLE BANK 1</H1>
+<H1>MASK_DATA_0_LSW LOW BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW LOW BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW LOW BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW LOW BANK [53:48]</H1>
+<H1>ADD 1 MS DELAY</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
 <H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
 <H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
 <H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
 <H1>ENET RESET</H1>
+<H1>ENET0 RESET</H1>
 <H1>DIR MODE BANK 0</H1>
 <H2><a name="DIRM_0">Register (<A href=#mod___slcr> slcr </A>)DIRM_0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -96823,7 +96945,26 @@ MASK_DATA_0_LSW
 <H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
 <H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
 <H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>ENET1 RESET</H1>
+<H1>DIR MODE BANK 0</H1>
+<H1>DIR MODE BANK 1</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>OUTPUT ENABLE BANK 0</H1>
+<H1>OUTPUT ENABLE BANK 1</H1>
+<H1>MASK_DATA_0_LSW LOW BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW LOW BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW LOW BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW LOW BANK [53:48]</H1>
+<H1>ADD 1 MS DELAY</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
 <H1>I2C RESET</H1>
+<H1>I2C0 RESET</H1>
 <H1>DIR MODE GPIO BANK0</H1>
 <H2><a name="DIRM_0">Register (<A href=#mod___slcr> slcr </A>)DIRM_0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -97436,6 +97577,28 @@ MASK_DATA_0_LSW
 <H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
 <H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
 <H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>I2C1 RESET</H1>
+<H1>DIR MODE GPIO BANK0</H1>
+<H1>DIR MODE GPIO BANK1</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>OUTPUT ENABLE</H1>
+<H1>OUTPUT ENABLE</H1>
+<H1>MASK_DATA_0_LSW LOW BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW LOW BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW LOW BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW LOW BANK [53:48]</H1>
+<H1>ADD 1 MS DELAY</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>NOR CHIP SELECT</H1>
+<H1>DIR MODE BANK 0</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>OUTPUT ENABLE BANK 0</H1>
 </TABLE>
 <P>
 <H2><a name="ps7_post_config_2_0">ps7_post_config_2_0</a></H2>
@@ -103030,10 +103193,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>23</B>
+<B>f</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>2300</B>
+<B>f00</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency.</B>
@@ -103050,10 +103213,10 @@ SLCR_LOCK
 <B>3f00000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>3</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>300000</B>
+<B>700000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. Second cascade divider</B>
@@ -103073,7 +103236,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>302301</B>
+<B>700f01</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>DCI clock control</B>
@@ -103992,10 +104155,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>e</B>
+<B>7</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>e00</B>
+<B>700</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider</B>
@@ -104012,10 +104175,10 @@ SLCR_LOCK
 <B>3f00000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>3</B>
+<B>6</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>300000</B>
+<B>600000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. Second cascade divider</B>
@@ -104035,7 +104198,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>300e01</B>
+<B>600701</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>CAN Reference Clock Control</B>
@@ -104210,6 +104373,7 @@ SLCR_LOCK
 </TR>
 </TABLE>
 <P>
+<H1>TRACE CLOCK</H1>
 <H2><a name="PCAP_CLK_CTRL">Register (<A href=#mod___slcr> slcr </A>)PCAP_CLK_CTRL</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
 <TR valign="top">
@@ -104453,10 +104617,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>5</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>500</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider</B>
@@ -104473,10 +104637,10 @@ SLCR_LOCK
 <B>3f00000</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>1</B>
+<B>4</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>100000</B>
+<B>400000</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. Second cascade divider</B>
@@ -104496,7 +104660,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>400500</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>FPGA 0 Output Clock Control</B>
@@ -104600,10 +104764,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>100</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider</B>
@@ -104643,7 +104807,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>100100</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>FPGA 1 Output Clock Control</B>
@@ -104747,10 +104911,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>100</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider</B>
@@ -104790,7 +104954,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>100100</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>FPGA 2 Output Clock Control</B>
@@ -104894,10 +105058,10 @@ SLCR_LOCK
 <B>3f00</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>14</B>
+<B>1</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1400</B>
+<B>100</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Provides the divisor used to divide the source clock to generate the required generated clock frequency. First cascade divider</B>
@@ -104937,7 +105101,7 @@ SLCR_LOCK
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>101400</B>
+<B>100100</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>FPGA 3 Output Clock Control</B>
@@ -110025,10 +110189,10 @@ ddrc_ctrl
 <B>3ff0</B>
 </TD>
 <TD width=10% BGCOLOR=#FBF5EF>
-<B>105</B>
+<B>16d</B>
 </TD>
 <TD width=15% BGCOLOR=#FBF5EF>
-<B>1050</B>
+<B>16d0</B>
 </TD>
 <TD width=35% BGCOLOR=#FBF5EF>
 <B>Cycles to wait after reset before driving CKE high to start the DRAM initialization sequence. Units: 1024 clock cycles. DDR2 Specifications typically require this to be programmed for a delay of >= 200 us. LPDDR2 - tINIT0 of 20 ms (max) + tINIT1 of 100 ns (min)</B>
@@ -110088,7 +110252,7 @@ ddrc_ctrl
 <B></B>
 </TD>
 <TD width=15% BGCOLOR=#C0C0C0>
-<B>11054</B>
+<B>116d4</B>
 </TD>
 <TD width=35% BGCOLOR=#C0C0C0>
 <B>DRAM burst 8 read/write register</B>
@@ -143096,7 +143260,6 @@ MASK_DATA_0_LSW
 </TABLE>
 <P>
 <H1>SRAM/NOR SET OPMODE</H1>
-<H1>TRACE CURRENT PORT SIZE</H1>
 <H1>UART REGISTERS</H1>
 <H2><a name="Baud_rate_divider_reg0">Register (<A href=#mod___slcr> slcr </A>)Baud_rate_divider_reg0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -144033,6 +144196,7 @@ MASK_DATA_0_LSW
 <H1>DIRECT COMMAND</H1>
 <H1>NOR CS1 BASE ADDRESS</H1>
 <H1>USB RESET</H1>
+<H1>USB0 RESET</H1>
 <H1>DIR MODE BANK 0</H1>
 <H2><a name="DIRM_0">Register (<A href=#mod___slcr> slcr </A>)DIRM_0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -144642,10 +144806,29 @@ MASK_DATA_0_LSW
 </TR>
 </TABLE>
 <P>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>USB1 RESET</H1>
+<H1>DIR MODE BANK 0</H1>
+<H1>DIR MODE BANK 1</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>OUTPUT ENABLE BANK 0</H1>
+<H1>OUTPUT ENABLE BANK 1</H1>
+<H1>MASK_DATA_0_LSW LOW BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW LOW BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW LOW BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW LOW BANK [53:48]</H1>
+<H1>ADD 1 MS DELAY</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
 <H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
 <H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
 <H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
 <H1>ENET RESET</H1>
+<H1>ENET0 RESET</H1>
 <H1>DIR MODE BANK 0</H1>
 <H2><a name="DIRM_0">Register (<A href=#mod___slcr> slcr </A>)DIRM_0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -145258,7 +145441,26 @@ MASK_DATA_0_LSW
 <H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
 <H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
 <H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>ENET1 RESET</H1>
+<H1>DIR MODE BANK 0</H1>
+<H1>DIR MODE BANK 1</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>OUTPUT ENABLE BANK 0</H1>
+<H1>OUTPUT ENABLE BANK 1</H1>
+<H1>MASK_DATA_0_LSW LOW BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW LOW BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW LOW BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW LOW BANK [53:48]</H1>
+<H1>ADD 1 MS DELAY</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
 <H1>I2C RESET</H1>
+<H1>I2C0 RESET</H1>
 <H1>DIR MODE GPIO BANK0</H1>
 <H2><a name="DIRM_0">Register (<A href=#mod___slcr> slcr </A>)DIRM_0</a></H2>
 <TABLE border=1 cellspacing=0 BORDERCOLOR=black WIDTH=100%">
@@ -145871,6 +146073,28 @@ MASK_DATA_0_LSW
 <H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
 <H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
 <H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>I2C1 RESET</H1>
+<H1>DIR MODE GPIO BANK0</H1>
+<H1>DIR MODE GPIO BANK1</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>OUTPUT ENABLE</H1>
+<H1>OUTPUT ENABLE</H1>
+<H1>MASK_DATA_0_LSW LOW BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW LOW BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW LOW BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW LOW BANK [53:48]</H1>
+<H1>ADD 1 MS DELAY</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>MASK_DATA_0_MSW HIGH BANK [31:16]</H1>
+<H1>MASK_DATA_1_LSW HIGH BANK [47:32]</H1>
+<H1>MASK_DATA_1_MSW HIGH BANK [53:48]</H1>
+<H1>NOR CHIP SELECT</H1>
+<H1>DIR MODE BANK 0</H1>
+<H1>MASK_DATA_0_LSW HIGH BANK [15:0]</H1>
+<H1>OUTPUT ENABLE BANK 0</H1>
 </TABLE>
 <P>
 <H2><a name="ps7_post_config_1_0">ps7_post_config_1_0</a></H2>

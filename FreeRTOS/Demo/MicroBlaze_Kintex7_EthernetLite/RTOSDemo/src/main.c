@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -385,15 +385,5 @@ const uint32_t ulPrescale = 10, ulTCR2Offset = 24UL;
 	return ulReturn;
 }
 /*-----------------------------------------------------------*/
-
-int outbyte( int c )
-{
-	return c;
-}
-
-void xil_printf( const char *pc, ... )
-{
-	( void ) pc;
-}
 
 

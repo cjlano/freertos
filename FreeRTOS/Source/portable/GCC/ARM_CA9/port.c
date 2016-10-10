@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -189,6 +189,10 @@ debugger. */
 	#define portTASK_RETURN_ADDRESS	prvTaskExitError
 #endif
 
+/* The space on the stack required to hold the FPU registers.  This is 32 64-bit
+registers, plus a 32-bit status register. */
+#define portFPU_REGISTER_WORDS	( ( 32 * 2 ) + 1 )
+
 /*-----------------------------------------------------------*/
 
 /*
@@ -201,6 +205,27 @@ extern void vPortRestoreTaskContext( void );
  * Used to catch tasks that attempt to return from their implementing function.
  */
 static void prvTaskExitError( void );
+
+/*
+ * If the application provides an implementation of vApplicationIRQHandler(),
+ * then it will get called directly without saving the FPU registers on
+ * interrupt entry, and this weak implementation of 
+ * vApplicationFPUSafeIRQHandler() is just provided to remove linkage errors -
+ * it should never actually get called so its implementation contains a
+ * call to configASSERT() that will always fail.
+ *
+ * If the application provides its own implementation of 
+ * vApplicationFPUSafeIRQHandler() then the implementation of 
+ * vApplicationIRQHandler() provided in portASM.S will save the FPU registers
+ * before calling it.
+ *
+ * Therefore, if the application writer wants FPU registers to be saved on
+ * interrupt entry their IRQ handler must be called 
+ * vApplicationFPUSafeIRQHandler(), and if the application writer does not want
+ * FPU registers to be saved on interrupt entry their IRQ handler must be
+ * called vApplicationIRQHandler().
+ */
+void vApplicationFPUSafeIRQHandler( uint32_t ulICCIAR ) __attribute__((weak) );
 
 /*-----------------------------------------------------------*/
 
@@ -294,13 +319,32 @@ StackType_t *pxPortInitialiseStack( StackType_t *pxTopOfStack, TaskFunction_t px
 	/* The task will start with a critical nesting count of 0 as interrupts are
 	enabled. */
 	*pxTopOfStack = portNO_CRITICAL_NESTING;
-	pxTopOfStack--;
 
-	/* The task will start without a floating point context.  A task that uses
-	the floating point hardware must call vPortTaskUsesFPU() before executing
-	any floating point instructions. */
-	*pxTopOfStack = portNO_FLOATING_POINT_CONTEXT;
+	#if( configUSE_TASK_FPU_SUPPORT == 1 )
+	{
+		/* The task will start without a floating point context.  A task that
+		uses the floating point hardware must call vPortTaskUsesFPU() before
+		executing any floating point instructions. */
+		pxTopOfStack--;
+		*pxTopOfStack = portNO_FLOATING_POINT_CONTEXT;
+	}
+	#elif( configUSE_TASK_FPU_SUPPORT == 2 )
+	{
+		/* The task will start with a floating point context.  Leave enough
+		space for the registers - and ensure they are initialised to 0. */
+		pxTopOfStack -= portFPU_REGISTER_WORDS;
+		memset( pxTopOfStack, 0x00, portFPU_REGISTER_WORDS * sizeof( StackType_t ) );
 
+		pxTopOfStack--;
+		*pxTopOfStack = pdTRUE;
+		ulPortTaskHasFPUContext = pdTRUE;
+	}
+	#else
+	{
+		#error Invalid configUSE_TASK_FPU_SUPPORT setting - configUSE_TASK_FPU_SUPPORT must be set to 1, 2, or left undefined.
+	}
+	#endif
+	
 	return pxTopOfStack;
 }
 /*-----------------------------------------------------------*/
@@ -387,7 +431,7 @@ uint32_t ulAPSR;
 		}
 	}
 
-	/* Will only get here if xTaskStartScheduler() was called with the CPU in
+	/* Will only get here if vTaskStartScheduler() was called with the CPU in
 	a non-privileged mode or the binary point register was not set to its lowest
 	possible value.  prvTaskExitError() is referenced to prevent a compiler
 	warning about it being defined but not referenced in the case that the user
@@ -472,17 +516,21 @@ void FreeRTOS_Tick_Handler( void )
 }
 /*-----------------------------------------------------------*/
 
-void vPortTaskUsesFPU( void )
-{
-uint32_t ulInitialFPSCR = 0;
+#if( configUSE_TASK_FPU_SUPPORT != 2 )
 
-	/* A task is registering the fact that it needs an FPU context.  Set the
-	FPU flag (which is saved as part of the task context). */
-	ulPortTaskHasFPUContext = pdTRUE;
+	void vPortTaskUsesFPU( void )
+	{
+	uint32_t ulInitialFPSCR = 0;
 
-	/* Initialise the floating point status register. */
-	__asm volatile ( "FMXR 	FPSCR, %0" :: "r" (ulInitialFPSCR) );
-}
+		/* A task is registering the fact that it needs an FPU context.  Set the
+		FPU flag (which is saved as part of the task context). */
+		ulPortTaskHasFPUContext = pdTRUE;
+
+		/* Initialise the floating point status register. */
+		__asm volatile ( "FMXR 	FPSCR, %0" :: "r" (ulInitialFPSCR) );
+	}
+
+#endif /* configUSE_TASK_FPU_SUPPORT */
 /*-----------------------------------------------------------*/
 
 void vPortClearInterruptMask( uint32_t ulNewMaskValue )
@@ -555,3 +603,8 @@ uint32_t ulReturn;
 #endif /* configASSERT_DEFINED */
 /*-----------------------------------------------------------*/
 
+void vApplicationFPUSafeIRQHandler( uint32_t ulICCIAR )
+{
+	( void ) ulICCIAR;
+	configASSERT( ( volatile void * ) NULL );
+}

@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -75,7 +75,7 @@
  * implements the simply blinky style version.
  *
  * NOTE 2:  This file only contains the source code that is specific to the
- * basic demo.  Generic functions, such FreeRTOS hook functions, and functions
+ * simple demo.  Generic functions, such FreeRTOS hook functions, and functions
  * required to configure the hardware are defined in main.c.
  ******************************************************************************
  *
@@ -94,14 +94,14 @@
  * in this file.  prvQueueReceiveTask() sits in a loop where it repeatedly
  * blocks on attempts to read data from the queue that was created within
  * main_blinky().  When data is received, the task checks the value of the
- * data, and if the value equals the expected 100, toggles an LED.  The 'block
- * time' parameter passed to the queue receive function specifies that the
- * task should be held in the Blocked state indefinitely to wait for data to
- * be available on the queue.  The queue receive task will only leave the
- * Blocked state when the queue send task writes to the queue.  As the queue
- * send task writes to the queue every 200 milliseconds, the queue receive
- * task leaves the Blocked state every 200 milliseconds, and therefore toggles
- * the LED every 200 milliseconds.
+ * data, and if the value equals the expected 100, outputs a message to the
+ * UART.  The 'block time' parameter passed to the queue receive function
+ * specifies that the task should be held in the Blocked state indefinitely to
+ * wait for data to be available on the queue.  The queue receive task will only
+ * leave the Blocked state when the queue send task writes to the queue.  As the
+ * queue send task writes to the queue every 200 milliseconds, the queue receive
+ * task leaves the Blocked state every 200 milliseconds, and therefore outputs
+ * a message every 200 milliseconds.
  */
 
 /* Kernel includes. */
@@ -109,8 +109,8 @@
 #include "task.h"
 #include "semphr.h"
 
-/* Standard demo includes. */
-#include "partest.h"
+/* Xilinx includes. */
+#include "xil_printf.h"
 
 /* Priorities at which the tasks are created. */
 #define mainQUEUE_RECEIVE_TASK_PRIORITY		( tskIDLE_PRIORITY + 2 )
@@ -124,9 +124,6 @@ to ticks using the portTICK_PERIOD_MS constant. */
 will remove items as they are added, meaning the send task should always find
 the queue empty. */
 #define mainQUEUE_LENGTH					( 1 )
-
-/* The LED toggled by the Rx task. */
-#define mainTASK_LED						( 0 )
 
 /*-----------------------------------------------------------*/
 
@@ -221,7 +218,7 @@ const uint32_t ulExpectedValue = 100UL;
 		it the expected value?  If it is, toggle the LED. */
 		if( ulReceivedValue == ulExpectedValue )
 		{
-			vParTestToggleLED( mainTASK_LED );
+			xil_printf( "100 received\r\n" );
 			ulReceivedValue = 0U;
 		}
 	}

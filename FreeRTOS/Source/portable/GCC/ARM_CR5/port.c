@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -357,7 +357,7 @@ uint32_t ulAPSR, ulCycles = 8; /* 8 bits per byte. */
 
 		/* Sanity check configUNIQUE_INTERRUPT_PRIORITIES matches the read
 		value. */
-//		configASSERT( ucMaxPriorityValue == portLOWEST_INTERRUPT_PRIORITY );
+		configASSERT( ucMaxPriorityValue == portLOWEST_INTERRUPT_PRIORITY );
 
 		/* Restore the clobbered interrupt priority register to its original
 		value. */
@@ -394,7 +394,7 @@ uint32_t ulAPSR, ulCycles = 8; /* 8 bits per byte. */
 		}
 	}
 
-	/* Will only get here if xTaskStartScheduler() was called with the CPU in
+	/* Will only get here if vTaskStartScheduler() was called with the CPU in
 	a non-privileged mode or the binary point register was not set to its lowest
 	possible value.  prvTaskExitError() is referenced to prevent a compiler
 	warning about it being defined but not referenced in the case that the user

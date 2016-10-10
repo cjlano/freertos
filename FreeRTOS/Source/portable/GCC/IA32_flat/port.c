@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -504,16 +504,16 @@ void vPortExitCritical( void )
 			#else
 			{
 				portAPIC_TASK_PRIORITY = 0;
-
-				/* If a yield was pended from within the critical section then
-				perform the yield now. */
-				if( ulPortYieldPending != pdFALSE )
-				{
-					ulPortYieldPending = pdFALSE;
-					__asm volatile( portYIELD_INTERRUPT );
-				}
 			}
 			#endif
+
+			/* If a yield was pended from within the critical section then
+			perform the yield now. */
+			if( ulPortYieldPending != pdFALSE )
+			{
+				ulPortYieldPending = pdFALSE;
+				__asm volatile( portYIELD_INTERRUPT );
+			}
 		}
 	}
 }

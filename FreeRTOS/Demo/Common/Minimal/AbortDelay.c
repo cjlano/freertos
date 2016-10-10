@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -237,6 +237,7 @@ static void prvBlockingTask( void *pvParameters )
 {
 TaskHandle_t xControllingTask;
 uint32_t ulNotificationValue;
+const uint32_t ulMax = 0xffffffffUL;
 
 	/* Just to remove compiler warnings. */
 	( void ) pvParameters;
@@ -247,7 +248,7 @@ uint32_t ulNotificationValue;
 	for( ;; )
 	{
 		/* Wait to be notified of the test that is to be performed next. */
-		xTaskNotifyWait( 0, ULONG_MAX, &ulNotificationValue, portMAX_DELAY );
+		xTaskNotifyWait( 0, ulMax, &ulNotificationValue, portMAX_DELAY );
 
 		switch( ulNotificationValue )
 		{
