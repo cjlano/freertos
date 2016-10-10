@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -253,9 +253,6 @@ void vStartStaticallyAllocatedTasks( void  )
 					   staticTASK_PRIORITY,					/* Priority of the task. */
 					   &( uxCreatorTaskStackBuffer[ 0 ] ),  /* The buffer to use as the task's stack. */
 					   &xCreatorTaskTCBBuffer );			/* The variable that will hold the task's TCB. */
-
-	/* Pseudo seed the random number generator. */
-	ulNextRand = ( uint32_t ) prvRand;
 }
 /*-----------------------------------------------------------*/
 

@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -91,10 +91,6 @@
 	.global FreeRTOS_IRQ_Handler
 	.global FreeRTOS_SWI_Handler
 	.global vPortRestoreTaskContext
-	.global vPortInstallFreeRTOSVectorTable
-
-
-
 
 .macro portSAVE_CONTEXT
 

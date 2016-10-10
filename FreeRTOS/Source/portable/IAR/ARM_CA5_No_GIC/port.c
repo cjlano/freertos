@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -254,7 +254,7 @@ uint32_t ulAPSR;
 		vPortRestoreTaskContext();
 	}
 
-	/* Will only get here if xTaskStartScheduler() was called with the CPU in
+	/* Will only get here if vTaskStartScheduler() was called with the CPU in
 	a non-privileged mode or the binary point register was not set to its lowest
 	possible value. */
 	return 0;

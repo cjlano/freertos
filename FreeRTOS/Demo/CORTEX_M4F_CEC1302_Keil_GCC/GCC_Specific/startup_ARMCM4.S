@@ -33,43 +33,16 @@
 	.syntax	unified
 	.arch	armv7e-m
 
-	.section .stack
-	.align	3
-
-	.equ	ulMainStackSize, 200 * 4
-	.equ	Stack_Size, 0x004
-	.globl	__StackTop
-	.globl	__StackLimit
-	.extern ulMainStack
-__StackLimit:
-	.space	Stack_Size
-	.size	__StackLimit, . - __StackLimit
-__StackTop:
-	.size	__StackTop, . - __StackTop
-
-	.section .heap
-	.align	3
-#ifdef __HEAP_SIZE
-	.equ	Heap_Size, __HEAP_SIZE
-#else
-	.equ	Heap_Size, 0
-#endif
-	.globl	__HeapBase
-	.globl	__HeapLimit
-__HeapBase:
-	.if	Heap_Size
-	.space	Heap_Size
-	.endif
-	.size	__HeapBase, . - __HeapBase
-__HeapLimit:
-	.size	__HeapLimit, . - __HeapLimit
+	.extern __SRAM_segment_end__
 
 	.section .isr_vector,"a",%progbits
+	.align	4
+	.globl	__isr_vector
 	.global __Vectors
-	.type	__Vectors, %object
-	.size	__Vectors, .-__Vectors
+
 __Vectors:
-	.long	ulMainStack + ulMainStackSize           /* Top of Stack */
+__isr_vector:
+	.long	__SRAM_segment_end__ - 4  /* Top of Stack at top of RAM*/
 	.long	Reset_Handler         /* Reset Handler */
 	.long	NMI_Handler           /* NMI Handler */
 	.long	HardFault_Handler     /* Hard Fault Handler */
@@ -148,9 +121,7 @@ __Vectors:
 	.long     NVIC_Handler_GIRQ09
 	.long     NVIC_Handler_GIRQ10
 	.long     NVIC_Handler_GIRQ11
-	;.long     NVIC_Handler_GIRQ12
-	.long     interrupt_irq12
-	;.long     NVIC_Handler_GIRQ13
+	.long     NVIC_Handler_GIRQ12
 	.long     NVIC_Handler_GIRQ13
 	.long     NVIC_Handler_GIRQ14
 	.long     NVIC_Handler_GIRQ15
@@ -207,9 +178,9 @@ Reset_Handler:
  *
  *  All addresses must be aligned to 4 bytes boundary.
  */
-	ldr sp, =ulMainStack + ulMainStackSize
+	ldr sp, =__SRAM_segment_end__
 	sub sp, sp, #4
-	
+
 	ldr	r1, =__etext
 	ldr	r2, =__data_start__
 	ldr	r3, =__data_end__

@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -207,9 +207,9 @@ line interface. */
 #define configMAC_ADDR5	0x16
 
 /* IP address configuration. */
-#define configIP_ADDR0		172
-#define configIP_ADDR1		25
-#define configIP_ADDR2		218
+#define configIP_ADDR0		10
+#define configIP_ADDR1		134
+#define configIP_ADDR2		134
 #define configIP_ADDR3		200
 
 /* Netmask configuration. */

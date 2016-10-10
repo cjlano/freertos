@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V8.2.3 - Copyright (C) 2015 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0 - Copyright (C) 2015 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -74,6 +74,10 @@
  * FreeRTOSConfig.h is used to select between the two.  See the notes on using
  * configCREATE_LOW_POWER_DEMO in main.c.  This file implements the low power
  * version.
+ *
+ * The simple blinky demo uses aggregated interrupts.  The full demo uses
+ * disaggregated interrupts.
+ *
  *
  * NOTE 2:  This file only contains the source code that is specific to the
  * low power demo.  Generic functions, such FreeRTOS hook functions, and
