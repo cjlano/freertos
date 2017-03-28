@@ -1,5 +1,5 @@
 /*
-    FreeRTOS V9.0.1 - Copyright (C) 2017 Real Time Engineers Ltd.
+    FreeRTOS V9.0.0rc2 - Copyright (C) 2016 Real Time Engineers Ltd.
     All rights reserved
 
     VISIT http://www.FreeRTOS.org TO ENSURE YOU ARE USING THE LATEST VERSION.
@@ -69,7 +69,7 @@
 
 /*
 	Changes from V2.5.2
-		
+
 	+ usCriticalNesting now has a volatile qualifier.
 */
 
@@ -85,12 +85,7 @@
  * Implementation of functions defined in portable.h for the MSP430 port.
  *----------------------------------------------------------*/
 
-//Define TIMERA0_VECTOR = TIMER0_A0_VECTOR
-#ifndef TIMERA0_VECTOR
-#define TIMERA0_VECTOR TIMER0_A0_VECTOR
-#endif 
-
-/* Constants required for hardware setup.  The tick ISR runs off the ACLK, 
+/* Constants required for hardware setup.  The tick ISR runs off the ACLK,
 not the MCLK. */
 #define portACLK_FREQUENCY_HZ			( ( TickType_t ) 32768 )
 #define portINITIAL_CRITICAL_NESTING	( ( uint16_t ) 10 )
@@ -116,11 +111,11 @@ sequence. */
 volatile uint16_t usCriticalNesting = portINITIAL_CRITICAL_NESTING;
 /*-----------------------------------------------------------*/
 
-/* 
- * Macro to save a task context to the task stack.  This simply pushes all the 
- * general purpose msp430 registers onto the stack, followed by the 
- * usCriticalNesting value used by the task.  Finally the resultant stack 
- * pointer value is saved into the task control block so it can be retrieved 
+/*
+ * Macro to save a task context to the task stack.  This simply pushes all the
+ * general purpose msp430 registers onto the stack, followed by the
+ * usCriticalNesting value used by the task.  Finally the resultant stack
+ * pointer value is saved into the task control block so it can be retrieved
  * the next time the task executes.
  */
 #define portSAVE_CONTEXT()									\
@@ -142,7 +137,7 @@ volatile uint16_t usCriticalNesting = portINITIAL_CRITICAL_NESTING;
 					"mov.w	r1, @r12				\n\t"	\
 				);
 
-/* 
+/*
  * Macro to restore a task context from the task stack.  This is effectively
  * the reverse of portSAVE_CONTEXT().  First the stack pointer value is
  * loaded from the task control block.  Next the value for usCriticalNesting
@@ -181,16 +176,16 @@ volatile uint16_t usCriticalNesting = portINITIAL_CRITICAL_NESTING;
 static void prvSetupTimerInterrupt( void );
 /*-----------------------------------------------------------*/
 
-/* 
- * Initialise the stack of a task to look exactly as if a call to 
+/*
+ * Initialise the stack of a task to look exactly as if a call to
  * portSAVE_CONTEXT had been called.
- * 
+ *
  * See the header file portable.h.
  */
 StackType_t *pxPortInitialiseStack( StackType_t *pxTopOfStack, TaskFunction_t pxCode, void *pvParameters )
 {
-	/* 
-		Place a few bytes of known values on the bottom of the stack. 
+	/*
+		Place a few bytes of known values on the bottom of the stack.
 		This is just useful for debugging and can be included if required.
 
 		*pxTopOfStack = ( StackType_t ) 0x1111;
@@ -198,10 +193,10 @@ StackType_t *pxPortInitialiseStack( StackType_t *pxTopOfStack, TaskFunction_t px
 		*pxTopOfStack = ( StackType_t ) 0x2222;
 		pxTopOfStack--;
 		*pxTopOfStack = ( StackType_t ) 0x3333;
-		pxTopOfStack--; 
+		pxTopOfStack--;
 	*/
 
-	/* The msp430 automatically pushes the PC then SR onto the stack before 
+	/* The msp430 automatically pushes the PC then SR onto the stack before
 	executing an ISR.  We want the stack to look just as if this has happened
 	so place a pointer to the start of the task on the stack first - followed
 	by the flags we want the task to use when it starts up. */
@@ -244,7 +239,7 @@ StackType_t *pxPortInitialiseStack( StackType_t *pxTopOfStack, TaskFunction_t px
 	use the stack as per other ports.  Instead a variable is used to keep
 	track of the critical section nesting.  This variable has to be stored
 	as part of the task context and is initially set to zero. */
-	*pxTopOfStack = ( StackType_t ) portNO_CRITICAL_SECTION_NESTING;	
+	*pxTopOfStack = ( StackType_t ) portNO_CRITICAL_SECTION_NESTING;
 
 	/* Return a pointer to the top of the stack we have generated so this can
 	be stored in the task control block for the task. */
@@ -274,7 +269,7 @@ void vPortEndScheduler( void )
 /*-----------------------------------------------------------*/
 
 /*
- * Manual context switch called by portYIELD or taskYIELD.  
+ * Manual context switch called by portYIELD or taskYIELD.
  *
  * The first thing we do is save the registers so we can use a naked attribute.
  */
@@ -282,8 +277,8 @@ void vPortYield( void ) __attribute__ ( ( naked ) );
 void vPortYield( void )
 {
 	/* We want the stack of the task being saved to look exactly as if the task
-	was saved during a pre-emptive RTOS tick ISR.  Before calling an ISR the 
-	msp430 places the status register onto the stack.  As this is a function 
+	was saved during a pre-emptive RTOS tick ISR.  Before calling an ISR the
+	msp430 places the status register onto the stack.  As this is a function
 	call and not an ISR we have to do this manually. */
 	asm volatile ( "push	r2" );
 	_DINT();
@@ -301,10 +296,12 @@ void vPortYield( void )
 
 /*
  * Hardware initialisation to generate the RTOS tick.  This uses timer 0
- * but could alternatively use the watchdog timer or timer 1. 
+ * but could alternatively use the watchdog timer or timer 1.
  */
 static void prvSetupTimerInterrupt( void )
 {
+	// const unsigned short usACLK_Frequency_Hz = 32768;
+	
 	/* Ensure the timer is stopped. */
 	TA0CTL = 0;
 
@@ -315,7 +312,8 @@ static void prvSetupTimerInterrupt( void )
 	TA0CTL |= TACLR;
 
 	/* Set the compare match value according to the tick rate we want. */
-	TA0CCR0 = portACLK_FREQUENCY_HZ / configTICK_RATE_HZ;
+	 TA0CCR0 = portACLK_FREQUENCY_HZ / configTICK_RATE_HZ;
+	// TA0CCR0 = usACLK_Frequency_Hz / configTICK_RATE_HZ;
 
 	/* Enable the interrupts. */
 	TA0CCTL0 = CCIE;
@@ -328,34 +326,35 @@ static void prvSetupTimerInterrupt( void )
 }
 /*-----------------------------------------------------------*/
 
-/* 
+/*
  * The interrupt service routine used depends on whether the pre-emptive
  * scheduler is being used or not.
  */
 
 #if configUSE_PREEMPTION == 1
-//TODO: Resolve compilation errors here
+
 	/*
 	 * Tick ISR for preemptive scheduler.  We can use a naked attribute as
 	 * the context is saved at the start of vPortYieldFromTick().  The tick
 	 * count is incremented after the context is saved.
 	 */
-	// interrupt (TIMERA0_VECTOR) prvTickISR( void ) __attribute__ ( ( naked ) );
-	// interrupt (TIMERA0_VECTOR) prvTickISR( void )
-	// {
-	// 	/* Save the context of the interrupted task. */
-	// 	portSAVE_CONTEXT();
 
-	// /*	 Increment the tick count then switch to the highest priority task
-	// 	that is ready to run. 
-	// 	if( xTaskIncrementTick() != pdFALSE )
-	// 	{
-	// 		vTaskSwitchContext();
-	// 	}
+    __attribute__ (( __interrupt__ (TIMER0_A0_VECTOR), naked ))
+	void prvTickISR( void )
+	{
+		/* Save the context of the interrupted task. */
+		portSAVE_CONTEXT();
 
-	// 	/* Restore the context of the new task. */
-	// 	portRESTORE_CONTEXT();
-	// }
+		/* Increment the tick count then switch to the highest priority task
+		that is ready to run. */
+		if( xTaskIncrementTick() != pdFALSE )
+		{
+			vTaskSwitchContext();
+		}
+
+		/* Restore the context of the new task. */
+		portRESTORE_CONTEXT();
+	}
 
 #else
 
@@ -364,12 +363,15 @@ static void prvSetupTimerInterrupt( void )
 	 * tick count.  We don't need to switch context, this can only be done by
 	 * manual calls to taskYIELD();
 	 */
-	interrupt (TIMERA0_VECTOR) prvTickISR( void );
-	interrupt (TIMERA0_VECTOR) prvTickISR( void )
+	interrupt (TA0IV_) prvTickISR( void );
+	interrupt (TA0IV_) prvTickISR( void )
 	{
 		xTaskIncrementTick();
 	}
 #endif
 
-
+void vApplicationIdleHook(void)
+{
+    // TODO: enter low power mode
+}
 	

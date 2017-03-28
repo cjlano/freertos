@@ -27,6 +27,13 @@ configured.  Once a demo application is building and executing you can remove
 the demo application file, and start to add in your own application source
 files.
 
+The easiest way to use FreeRTOS is to start with one of the pre-configured demo 
+application projects (found in the FreeRTOS/Demo directory).  That way you will
+have the correct FreeRTOS source files included, and the correct include paths
+configured.  Once a demo application is building and executing you can remove
+the demo application file, and start to add in your own application source
+files.
+
 See also -
 http://www.freertos.org/FreeRTOS-quick-start-guide.html
 http://www.freertos.org/FAQHelp.html
