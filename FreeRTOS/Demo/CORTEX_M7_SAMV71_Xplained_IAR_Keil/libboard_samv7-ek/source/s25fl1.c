@@ -260,7 +260,7 @@ unsigned int S25FL1D_ReadJedecId(void)
     pDev->DataSize = 3;
     S25FL1D_SendCommand(READ_JEDEC_ID, READ_DEV);
 
-    id = ( (pDev->pData[0] << 16)  || (pDev->pData[1] << 8) || (pDev->pData[2]));
+    id = ( (pDev->pData[0] << 16)  | (pDev->pData[1] << 8) | (pDev->pData[2]));
 
     return id;
 }
