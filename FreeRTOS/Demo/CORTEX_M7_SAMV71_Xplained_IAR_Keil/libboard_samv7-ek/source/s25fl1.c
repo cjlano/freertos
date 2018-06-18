@@ -296,7 +296,7 @@ void S25FL1D_EnableQuadMode(void)
  *
  * \para pS25fl1  Pointer to an S25FL1 driver instance.
  */
-void S25FL1D_EnableWrap(uint8_t ByetAlign)
+void S25FL1D_EnableWrap(uint8_t ByteAlign)
 {
 
     uint8_t status[3];
@@ -305,7 +305,7 @@ void S25FL1D_EnableWrap(uint8_t ByetAlign)
     status[1] = S25FL1D_ReadStatus2();
     status[2] = S25FL1D_ReadStatus3();
 
-    status[2] = (ByetAlign << 5);
+    status[2] = (ByteAlign << 5);
 
     pDev->DataSize = 1;
     *(pDev->pData) = status[2];
